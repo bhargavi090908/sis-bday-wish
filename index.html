@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Thingari Buchi! 💕</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background Floating Hearts -->
+  <div class="hearts-container" id="heartsContainer"></div>
+
+  <!-- SCREEN 1: PASSCODE SCREEN -->
+  <section id="screen-passcode" class="screen active">
+    <div class="card">
+      <div class="icon-header">🔒✨</div>
+      <h1 class="cursive-title">Sister Security Check!</h1>
+      <p class="subtitle">Enter the secret code to open your birthday surprise!</p>
+      <div class="input-group">
+        <input type="password" id="passcodeInput" placeholder="Enter secret code..." maxlength="10" />
+        <button id="passcodeBtn" onclick="checkPasscode()">Unlock 💖</button>
+      </div>
+      <p class="hint">Hint: Your nickname! (e.g. <b>buchi</b>)</p>
+      <p id="passcodeError" class="error-msg"></p>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: WELCOME SCREEN -->
+  <section id="screen-welcome" class="screen">
+    <div class="card">
+      <div class="icon-header">🎉👑</div>
+      <h1 class="cursive-title">Happy Birthday, Thingari Buchi!</h1>
+      <p class="subtitle">To the most annoying yet most beloved sister in the world! ❤️</p>
+      <div class="illustration-box">
+        <span class="big-emoji">👧🎀✨</span>
+      </div>
+      <button class="btn-primary" onclick="goToScreen('screen-balloons')">Start Your Surprise 🎁</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: INTERACTIVE BALLOONS -->
+  <section id="screen-balloons" class="screen">
+    <div class="card">
+      <h2 class="cursive-title">Pop the Balloons! 🎈</h2>
+      <p class="subtitle">Tap every balloon to unlock a special wish from Bondam!</p>
+
+      <div class="balloons-grid">
+        <div class="balloon balloon-1" onclick="popBalloon(1)">🎈<span>1</span></div>
+        <div class="balloon balloon-2" onclick="popBalloon(2)">🎈<span>2</span></div>
+        <div class="balloon balloon-3" onclick="popBalloon(3)">🎈<span>3</span></div>
+        <div class="balloon balloon-4" onclick="popBalloon(4)">🎈<span>4</span></div>
+      </div>
+
+      <div id="balloonWishBox" class="wish-modal hidden">
+        <p id="balloonWishText"></p>
+        <button class="btn-small" onclick="closeWish()">Got it! 💕</button>
+      </div>
+
+      <button id="balloonsNextBtn" class="btn-primary hidden" onclick="goToScreen('screen-candle')">Make a Wish 🎂</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 4: CANDLE WISH SCREEN -->
+  <section id="screen-candle" class="screen">
+    <div class="card">
+      <h2 class="cursive-title">Blow Out the Candle! 🕯️</h2>
+      <p class="subtitle">Close your eyes, think of a wish, and tap the flame to blow it out!</p>
+
+      <div class="cake-container">
+        <div class="cake">
+          <div class="candle">
+            <div id="flame" class="flame" onclick="blowCandle()"></div>
+          </div>
+        </div>
+      </div>
+
+      <p id="candleStatus" class="candle-text">Tap the flame! 🔥</p>
+      <button id="candleNextBtn" class="btn-primary hidden" onclick="goToScreen('screen-bouquet')">Receive Flowers 💐</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 5: ROSE BOUQUET SCREEN -->
+  <section id="screen-bouquet" class="screen">
+    <div class="card">
+      <h2 class="cursive-title">A Bouquet Just For You 🌹</h2>
+      <p class="subtitle">You deserve all the sweetness and smiles in the world today!</p>
+      <div class="bouquet-illustration">
+        💐🌹🌸🌷✨
+      </div>
+      <button class="btn-primary" onclick="goToScreen('screen-letter')">Read Bondam's Letter 📜</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 6: HEARTFELT LETTER SCREEN -->
+  <section id="screen-letter" class="screen">
+    <div class="card scrollable">
+      <h2 class="cursive-title">Dear Thingari Buchi, 💕</h2>
+      <div class="letter-body">
+        <p>Happy Birthday to my favorite partner in crime!</p>
+        <p>Even though we fight over the silly things and tease each other non-stop, I wouldn't trade having you as my sister for anything in the world.</p>
+        <p>You bring so much joy, laughter, and drama into our lives. Keep shining bright, chasing your dreams, and being your unique, wonderful self.</p>
+        <p>May this year bring you endless happiness, good health, and success in everything you do. Always remember that no matter what happens, your brother is right here backing you up!</p>
+        <p class="signature">With lots of love & teasing,<br><b>— Your brother, Bondam 🍩</b></p>
+      </div>
+      <button class="btn-primary" onclick="restartSurprise()">Replay Surprise 🔄</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
